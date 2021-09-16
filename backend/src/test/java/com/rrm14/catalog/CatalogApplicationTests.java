@@ -1,12 +1,12 @@
 package com.rrm14.catalog;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class CatalogApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 
