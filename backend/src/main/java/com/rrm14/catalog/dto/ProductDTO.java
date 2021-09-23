@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-
 import com.rrm14.catalog.entities.Category;
 import com.rrm14.catalog.entities.Product;
 
