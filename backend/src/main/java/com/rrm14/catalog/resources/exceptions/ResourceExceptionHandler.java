@@ -30,7 +30,7 @@ public class ResourceExceptionHandler {
 	}
 	
 	@ExceptionHandler(DataBaseException.class)
-	public ResponseEntity<StandardError> database(ResourceNotFoundException e, HttpServletRequest request){
+	public ResponseEntity<StandardError> database(DataBaseException e, HttpServletRequest request){
 		HttpStatus status = HttpStatus.BAD_REQUEST;
 		
 		StandardError error = new StandardError();
