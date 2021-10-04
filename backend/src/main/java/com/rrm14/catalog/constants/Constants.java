@@ -7,4 +7,5 @@ public class Constants {
 	public static final String  ID_NOT_FOUND = "Id Not Found ";
 	public static final String  INTEGRITY_VIOLATION = "Integrity Violation ";
 	public static final String  DATABASE_EXCEPTION = "Database Exception";
+	public static final String  VALIDATION_EXCEPTION = "Validation Exception";
 }
