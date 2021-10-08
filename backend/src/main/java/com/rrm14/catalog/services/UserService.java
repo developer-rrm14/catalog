@@ -17,6 +17,7 @@ import com.rrm14.catalog.constants.Constants;
 import com.rrm14.catalog.dto.RoleDTO;
 import com.rrm14.catalog.dto.UserDTO;
 import com.rrm14.catalog.dto.UserInsertDTO;
+import com.rrm14.catalog.dto.UserUpdateDTO;
 import com.rrm14.catalog.entities.Role;
 import com.rrm14.catalog.entities.User;
 import com.rrm14.catalog.repositories.RoleRepository;
@@ -60,7 +61,7 @@ public class UserService {
 
 	
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
 			User entity = repository.getOne(id);
 			copyDtoToEntity(dto, entity);

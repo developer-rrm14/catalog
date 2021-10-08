@@ -10,4 +10,5 @@ public class Constants {
 	public static final String  VALIDATION_EXCEPTION = "Validation Exception";
 	public static final String  FIELD_EMAIL = "email";
 	public static final String  EMAIL_EXISTS = "E-mail already exists";
+	public static final String  FIELD_ID = "id";
 }
