@@ -8,4 +8,6 @@ public class Constants {
 	public static final String  INTEGRITY_VIOLATION = "Integrity Violation ";
 	public static final String  DATABASE_EXCEPTION = "Database Exception";
 	public static final String  VALIDATION_EXCEPTION = "Validation Exception";
+	public static final String  FIELD_EMAIL = "email";
+	public static final String  EMAIL_EXISTS = "E-mail already exists";
 }
