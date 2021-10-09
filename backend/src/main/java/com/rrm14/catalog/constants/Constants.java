@@ -11,4 +11,7 @@ public class Constants {
 	public static final String  FIELD_EMAIL = "email";
 	public static final String  EMAIL_EXISTS = "E-mail already exists";
 	public static final String  FIELD_ID = "id";
+	public static final String  EMAIL_NOTFOUND = "Email Not Found";
+	public static final String  USER_NOTFOUND = "User Not Found: ";
+	public static final String  USER_FOUND = "User Found: ";
 }
