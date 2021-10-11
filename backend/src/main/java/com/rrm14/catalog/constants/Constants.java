@@ -14,4 +14,9 @@ public class Constants {
 	public static final String  EMAIL_NOTFOUND = "Email Not Found";
 	public static final String  USER_NOTFOUND = "User Not Found: ";
 	public static final String  USER_FOUND = "User Found: ";
+	public static final String  SCOPE_READ = "read";
+	public static final String  SCOPE_WRITE = "write";
+	public static final String  GRANT_TYPE = "password";
+	public static final String  USER_FIRST_NAME = "userFirstName";
+	public static final String  USER_ID = "userId";
 }
