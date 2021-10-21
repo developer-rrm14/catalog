@@ -49,7 +49,9 @@ public class ProductServiceTests {
 	private Category category;
 	private ProductDTO productDTO;
 	private Long existingCategoryId;
-	private Long NoExistingCategoryId;
+	private Long noExistingCategoryId;
+	private Long categoryId;
+	private String name;
 	
 	@BeforeEach
 	void setUp() throws Exception{
@@ -61,7 +63,9 @@ public class ProductServiceTests {
 		category = Factory.createCategory();
 		productDTO = Factory.createProductDTO();
 		existingCategoryId = 2L;
-		NoExistingCategoryId = 5L;
+		noExistingCategoryId = 5L;
+		categoryId = 0L;
+		name = "";
 		
 		Mockito.when(repository.findAll((Pageable)ArgumentMatchers.any())).thenReturn(page);
 		
@@ -71,13 +75,17 @@ public class ProductServiceTests {
 		
 		Mockito.when(repository.findById(nonExistingId)).thenReturn(Optional.empty());
 		
+		Mockito.when(repository.find((Pageable)ArgumentMatchers.any(),
+										       ArgumentMatchers.any(), 
+										       ArgumentMatchers.any())).thenReturn(page);
+		
 		Mockito.when(repository.getOne(existingId)).thenReturn(product);
 		
 		Mockito.when(categoryRepository.getOne(existingCategoryId)).thenReturn(category);
 		
 		Mockito.when(repository.getOne(nonExistingId)).thenThrow(EntityNotFoundException.class);
 		
-		Mockito.when(categoryRepository.getOne(NoExistingCategoryId)).thenThrow(EntityNotFoundException.class);
+		Mockito.when(categoryRepository.getOne(noExistingCategoryId)).thenThrow(EntityNotFoundException.class);
 		
 		Mockito.doNothing().when(repository).deleteById(existingId);
 		
@@ -118,11 +126,9 @@ public class ProductServiceTests {
 	@Test
 	public void findAllPagedShouldReturnPage() {	
 		Pageable pageable = PageRequest.of(0, 10);
-		Page<ProductDTO> result = service.findAllPaged(pageable);
+		Page<ProductDTO> result = service.findAllPaged(pageable, categoryId, name);
 		
 		Assertions.assertNotNull(result);
-		
-		Mockito.verify(repository, Mockito.times(1)).findAll(pageable);
 	}
 	
 	@Test

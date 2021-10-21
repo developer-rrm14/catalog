@@ -16,4 +16,7 @@ import com.rrm14.catalog.constants.Queries;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query(Queries.JPQL_PRODUCT)
 	Page<Product> find(Pageable pageable, List<Category> categories, String name);
+	
+	@Query(Queries.JPQL_PRODUCTS_WITH_CATEGORIES)
+	List<Product> findProductsWithCategories(List<Product> products);
 }
