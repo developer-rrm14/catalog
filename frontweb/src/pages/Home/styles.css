@@ -55,10 +55,6 @@
     margin-bottom: 30px;
   }
 
-  .home-content-container button {
-    width: 506px;
-  }
-
   .home-image-container svg {
     width: 506px;
   }
@@ -113,7 +109,7 @@
     text-align: left;
     align-content: space-between;
     flex-flow: wrap;
-    padding: 20px;
+    padding: 50px;
   }
 
   .home-image-container {
