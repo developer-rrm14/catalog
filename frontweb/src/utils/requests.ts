@@ -2,6 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 import history from './history';
 import jwtDecode from 'jwt-decode';
+import { ResolverSuccess } from 'react-hook-form';
 
 ////////////////////////////////////////////////////////////////////////////////////////
 type LoginData = {
@@ -139,5 +140,21 @@ export const getTokenData = (): TokenData | undefined => {
 export const isAuthenticated = (): boolean => {
   const tokenData = getTokenData();
   return tokenData && tokenData.exp * 1000 > Date.now() ? true : false;
+};
+////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////
+export const hasAnyRoles = (roles: Role[]): boolean => {
+  if (roles.length === 0) {
+    return true;
+  }
+
+  const tokenData = getTokenData();
+
+  if (tokenData !== undefined) {
+    return roles.some((role) => tokenData.authorities.includes(role));
+  }
+
+  return false;
 };
 ////////////////////////////////////////////////////////////////////////////////////////
