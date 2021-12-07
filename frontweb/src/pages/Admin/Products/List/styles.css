@@ -13,6 +13,7 @@
   padding: 15px;
 }
 
+
 @media (min-width: 768px) {
   .product-crud-bar-container {
     display: flex;
