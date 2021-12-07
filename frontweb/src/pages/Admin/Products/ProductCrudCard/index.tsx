@@ -9,7 +9,7 @@ type Props = {
 
 const ProductCrudCard = ({ product }: Props) => {
   return (
-    <>
+    <div className="product-crud-container">
       <div className="base-card product-crud-card">
         <div className="product-crud-card-top-container">
           <img src={product.imgUrl} alt={product.name} />
@@ -34,7 +34,7 @@ const ProductCrudCard = ({ product }: Props) => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
