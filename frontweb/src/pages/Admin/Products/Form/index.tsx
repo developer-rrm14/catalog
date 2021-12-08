@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom';
 import Select from 'react-select';
@@ -27,6 +27,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    control,
   } = useForm<Product>();
 
   useEffect(() => {
@@ -95,13 +96,28 @@ const Form = () => {
                 </div>
               </div>
               <div className="margim-bottom-30">
-                <Select
-                  options={selectCategories}
-                  classNamePrefix="product-crud-select"
-                  isMulti
-                  getOptionLabel={(category: Category) => category.name}
-                  getOptionValue={(category: Category) => String(category.id)}
+                <Controller
+                  name="categories"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={selectCategories}
+                      classNamePrefix="product-crud-select"
+                      isMulti
+                      getOptionLabel={(category: Category) => category.name}
+                      getOptionValue={(category: Category) =>
+                        String(category.id)
+                      }
+                    />
+                  )}
                 />
+                {errors.categories && (
+                  <div className="invalid-feedback d-block">
+                    Campo Obrigatório
+                  </div>
+                )}
               </div>
               <div className="margim-bottom-30 ">
                 <input
@@ -127,7 +143,7 @@ const Form = () => {
                   {...register('description', {
                     required: 'Campo Obrigatório',
                   })}
-                  className={`form-control base-input h-auto ${
+                  className={`form-control base-input product-input h-auto ${
                     errors.description ? 'is-invalid' : ''
                   }`}
                   placeholder="Descrição"
