@@ -51,15 +51,10 @@ const Form = () => {
   }, [isEditing, productId, setValue]);
 
   const onSubmit = (formData: Product) => {
-    const data = {
-      ...formData,
-      categories: isEditing ? formData.categories : [{ id: 1, name: '' }],
-    };
-
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/products/${productId}` : '/products',
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 
@@ -133,6 +128,26 @@ const Form = () => {
                 />
                 <div className="invalid-feedback d-block">
                   {errors.price?.message}
+                </div>
+              </div>
+              <div className="margim-bottom-30">
+                <input
+                  {...register('imgUrl', {
+                    required: 'Campo Obrigatório',
+                    pattern: {
+                      value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
+                      message: 'URL Inválida',
+                    },
+                  })}
+                  type="text"
+                  className={`form-control base-input product-input ${
+                    errors.name ? 'is-invalid' : ''
+                  }`}
+                  placeholder="URL da imagem do produto"
+                  name="imgUrl"
+                />
+                <div className="invalid-feedback d-block">
+                  {errors.imgUrl?.message}
                 </div>
               </div>
             </div>
