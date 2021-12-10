@@ -85,7 +85,7 @@ const Form = () => {
                     required: 'Campo Obrigatório',
                   })}
                   type="text"
-                  className={`form-control base-input product-input ${
+                  className={`form-control base-input base-input-white ${
                     errors.name ? 'is-invalid' : ''
                   }`}
                   placeholder="Nome do Produto"
@@ -127,7 +127,7 @@ const Form = () => {
                   render={({ field }) => (
                     <CurrencyInput
                       placeholder="Preço"
-                      className={`form-control base-input product-input ${
+                      className={`form-control base-input base-input-white ${
                         errors.name ? 'is-invalid' : ''
                       }`}
                       disableGroupSeparators={true}
@@ -152,7 +152,7 @@ const Form = () => {
                     },
                   })}
                   type="text"
-                  className={`form-control base-input product-input ${
+                  className={`form-control base-input base-input-white ${
                     errors.name ? 'is-invalid' : ''
                   }`}
                   placeholder="URL da imagem do produto"
@@ -170,7 +170,7 @@ const Form = () => {
                   {...register('description', {
                     required: 'Campo Obrigatório',
                   })}
-                  className={`form-control base-input product-input h-auto ${
+                  className={`form-control base-input base-input-white h-auto ${
                     errors.description ? 'is-invalid' : ''
                   }`}
                   placeholder="Descrição"

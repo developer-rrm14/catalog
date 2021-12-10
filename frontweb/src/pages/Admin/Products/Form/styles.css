@@ -34,10 +34,6 @@
   font-weight: bold;
 }
 
-.product-input {
-  background-color: #fff;
-}
-
 .product-crud-select__control {
   border-radius: 10px !important;
   font-size: 1em;
